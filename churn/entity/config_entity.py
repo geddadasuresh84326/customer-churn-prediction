@@ -2,6 +2,7 @@
 from datetime import datetime
 import os
 from churn.constant  import training_pipeline
+from churn.constant.prediction_pipeline import PREDICTION_RESULT_FILE,PREDICTIONS_STORAGE_FOLDER
 
 class TrainingPipelineConfig:
 
@@ -98,3 +99,8 @@ class ModelPusherConfig:
             training_pipeline.SAVED_MODEL_DIR,
             f"{timestamp}",
             training_pipeline.MODEL_FILE_NAME)
+
+
+class PredictionPipelineConfig:
+    def __init__(self) :
+        self.prediction_result_file_path = os.path.join(PREDICTIONS_STORAGE_FOLDER,PREDICTION_RESULT_FILE)

@@ -127,8 +127,8 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-.churn_envr
-churn_envr/
+.churn_venv
+churn_venv/
 # Spyder project settings
 .spyderproject
 .spyproject

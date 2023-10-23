@@ -1,0 +1,21 @@
+columns:
+  - Age: int
+  - Gender: category
+  - Location: category
+  - Subscription_Length_Months: int
+  - Monthly_Bill: int
+  - Total_Usage_GB: int
+  - CustomerID: category
+  - Name: category
+  
+numerical_columns:
+  - Churn
+  - Age
+  - Subscription_Length_Months
+  - Monthly_Bill
+  - Total_Usage_GB
+
+drop_columns:
+  - CustomerID
+  - Name
+  

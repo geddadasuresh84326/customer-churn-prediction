@@ -62,8 +62,8 @@ class DataTransformation:
 
         except Exception as e:
             raise ChurnException(e, sys) from e
-
-    def label_encoding(self,dataframe:pd.DataFrame)->pd.DataFrame:
+    @classmethod
+    def label_encoding(cls,dataframe:pd.DataFrame)->pd.DataFrame:
         cat_columns = [feature for feature in dataframe.columns if dataframe[feature].dtype == "O"]
         logging.info(f"cateforical_columns : {cat_columns}")
         for feature in cat_columns:
@@ -80,8 +80,8 @@ class DataTransformation:
             preprocessor = self.get_data_transformer_object()
 
             # label encoding 
-            train_labeled_df = self.label_encoding(dataframe=train_df)
-            test_labeled_df = self.label_encoding(dataframe=test_df)
+            train_labeled_df = DataTransformation.label_encoding(dataframe=train_df)
+            test_labeled_df = DataTransformation.label_encoding(dataframe=test_df)
             
             #training dataframe
             input_feature_train_df = train_labeled_df.drop(columns=[TARGET_COLUMN], axis=1)
